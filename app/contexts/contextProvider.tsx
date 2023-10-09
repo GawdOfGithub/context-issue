@@ -3,8 +3,9 @@ import React, { createContext, useContext, useState } from 'react';
 type ContextType = {
   a:number
   setA:(s:number)=>void
-  c:number
+  b:number
   setB:(s:number)=>void
+  handleParent:any
 }
 const Context = createContext<ContextType | undefined>(undefined);
 
@@ -14,13 +15,16 @@ interface NameProviderProps {
 
 export function Provider({ children }: NameProviderProps) {
   const[a,setA] = useState(0)
-  const[c,setB] = useState(1)
-  // drop all the hoooks here 
+  const[b,setB] = useState(1)
+  function handleParent()
+    {
+        setA(a+1)
+    }
   return (
-    <Context.Provider value={{a,setA,c,setB}}>
+    <Context.Provider value={{a,setA,b,setB,handleParent}}>
       {children}
     </Context.Provider>
-  );
+  )
 }
 
 export function useName() {

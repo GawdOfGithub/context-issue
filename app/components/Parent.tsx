@@ -10,7 +10,7 @@ export default function Parent() {
 
   return (
     <div>
-    <Child/>
+    <Child handleParent={handleParent}/>
     
     </div>
   )

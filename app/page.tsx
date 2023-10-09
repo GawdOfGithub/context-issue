@@ -7,11 +7,11 @@ import { useName } from "./contexts/contextProvider";
 type Props = {}
 
 export default function Page({}: Props) {
-  const{a,setA,c,setB} = useName()
+  const{a,setA,b,setB} = useName()
   
   return (
   <main>
-    <div className="text-yellow-700 text-5xl" ><Parent/></div>
+    <div> <Parent/></div>
     <div></div>
   </main>
   )
